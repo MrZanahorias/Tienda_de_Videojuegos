@@ -13,8 +13,11 @@ const emptyState = document.getElementById('empty-state');
 const videojuegosTable = document.getElementById('videojuegos-table');
 const refreshBtn = document.getElementById('refresh-btn');
 const cancelBtn = document.getElementById('cancel-btn');
-const formTitle = document.getElementById('form-title');
+const modalTitleText = document.getElementById('modal-title-text');
 const btnText = document.getElementById('btn-text');
+const gameModal = document.getElementById('game-modal');
+const closeModalBtn = document.getElementById('close-modal');
+const addBtn = document.querySelector('.add-btn');
 
 // Obtener el token CSRF de Django
 function getCookie(name) {
@@ -138,6 +141,18 @@ function mostrarVideojuegos(videojuegos) {
     });
 }
 
+// Funciones del modal
+function abrirModal() {
+    gameModal.classList.add('show');
+    document.body.style.overflow = 'hidden';
+}
+
+function cerrarModal() {
+    gameModal.classList.remove('show');
+    document.body.style.overflow = 'auto';
+    cancelarEdicion();
+}
+
 // Crear o actualizar videojuego
 videojuegoForm.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -183,19 +198,18 @@ videojuegoForm.addEventListener('submit', async (e) => {
             throw new Error(errorData.error || 'Error al guardar el videojuego');
         }
         
-        const mensaje = editingVideojuegoId ? 'Videojuego actualizado correctamente' : 'Videojuego creado correctamente';
+        const mensaje = editingVideojuegoId ? '✅ Videojuego actualizado correctamente' : '✅ Videojuego creado correctamente';
         showToast(mensaje, 'success');
         
-        // Resetear formulario
-        videojuegoForm.reset();
-        cancelarEdicion();
+        // Cerrar modal y resetear
+        cerrarModal();
         
         // Recargar videojuegos
         await cargarVideojuegos();
         
     } catch (error) {
         console.error('Error:', error);
-        showToast(error.message, 'error');
+        showToast('❌ ' + error.message, 'error');
     }
 });
 
@@ -222,25 +236,23 @@ async function editarVideojuego(id) {
         
         // Cambiar estado a edición
         editingVideojuegoId = id;
-        formTitle.textContent = 'Editar Videojuego';
+        modalTitleText.textContent = 'Editar Videojuego';
         btnText.textContent = 'Actualizar Videojuego';
-        cancelBtn.style.display = 'inline-block';
         
-        // Scroll al formulario
-        document.querySelector('.form-section').scrollIntoView({ behavior: 'smooth' });
+        // Abrir modal
+        abrirModal();
         
     } catch (error) {
         console.error('Error:', error);
-        showToast('Error al cargar el videojuego para editar', 'error');
+        showToast('❌ Error al cargar el videojuego para editar', 'error');
     }
 }
 
 // Cancelar edición
 function cancelarEdicion() {
     editingVideojuegoId = null;
-    formTitle.textContent = 'Agregar Nuevo Videojuego';
+    modalTitleText.textContent = 'Agregar Nuevo Videojuego';
     btnText.textContent = 'Agregar Videojuego';
-    cancelBtn.style.display = 'none';
     videojuegoForm.reset();
 }
 
@@ -262,18 +274,34 @@ async function eliminarVideojuego(id) {
             throw new Error('Error al eliminar el videojuego');
         }
         
-        showToast('Videojuego eliminado correctamente', 'success');
+        showToast('✅ Videojuego eliminado correctamente', 'success');
         await cargarVideojuegos();
         
     } catch (error) {
         console.error('Error:', error);
-        showToast('Error al eliminar el videojuego', 'error');
+        showToast('❌ Error al eliminar el videojuego', 'error');
     }
 }
 
 // Event listeners
 refreshBtn.addEventListener('click', cargarVideojuegos);
-cancelBtn.addEventListener('click', cancelarEdicion);
+cancelBtn.addEventListener('click', cerrarModal);
+closeModalBtn.addEventListener('click', cerrarModal);
+addBtn.addEventListener('click', abrirModal);
+
+// Cerrar modal al hacer click fuera
+gameModal.addEventListener('click', (e) => {
+    if (e.target === gameModal) {
+        cerrarModal();
+    }
+});
+
+// Cerrar modal con tecla ESC
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && gameModal.classList.contains('show')) {
+        cerrarModal();
+    }
+});
 
 // Cargar videojuegos al iniciar
 document.addEventListener('DOMContentLoaded', () => {
