@@ -458,6 +458,54 @@ header h1 {
     font-family: inherit;
 }
 
+/* Estilo específico para el select de género - solo el botón (fondo negro como otros campos) */
+.form-group select#genero {
+    background: rgba(255, 255, 255, 0.05) !important;
+    color: var(--text-primary) !important;
+    font-weight: 500;
+}
+
+.form-group select#genero:focus {
+    background: rgba(255, 92, 0, 0.05) !important;
+    color: var(--text-primary) !important;
+}
+
+.form-group select#genero:hover {
+    background: rgba(255, 255, 255, 0.08) !important;
+    color: var(--text-primary) !important;
+}
+
+/* Estilo para las opciones de la lista desplegable del select de género */
+.form-group select#genero option {
+    background: #ffffff !important;
+    color: #000000 !important;
+    padding: 0.5rem;
+}
+
+/* Estilo específico para el select de plataforma */
+.form-group select#plataforma {
+    background: rgba(255, 255, 255, 0.05) !important;
+    color: var(--text-primary) !important;
+    font-weight: 500;
+}
+
+.form-group select#plataforma:focus {
+    background: rgba(255, 92, 0, 0.05) !important;
+    color: var(--text-primary) !important;
+}
+
+.form-group select#plataforma:hover {
+    background: rgba(255, 255, 255, 0.08) !important;
+    color: var(--text-primary) !important;
+}
+
+/* Estilo para las opciones de la lista desplegable del select de plataforma - texto negro */
+.form-group select#plataforma option {
+    background: #ffffff !important;
+    color: #000000 !important;
+    padding: 0.5rem;
+}
+
 .form-group textarea {
     resize: vertical;
     min-height: 100px;
@@ -632,17 +680,23 @@ header h1 {
 }
 
 /* Table */
-#productos-table {
+#productos-table,
+#videojuegos-table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 1rem;
+    background: var(--card-bg);
+    border-radius: 8px;
+    overflow: hidden;
 }
 
-#productos-table thead {
-    background-color: var(--bg-color);
+#productos-table thead,
+#videojuegos-table thead {
+    background-color: rgba(255, 92, 0, 0.1);
 }
 
-#productos-table th {
+#productos-table th,
+#videojuegos-table th {
     padding: 1rem;
     text-align: left;
     font-weight: 600;
@@ -650,20 +704,25 @@ header h1 {
     border-bottom: 2px solid var(--border-color);
 }
 
-#productos-table td {
+#productos-table td,
+#videojuegos-table td {
     padding: 1rem;
     border-bottom: 1px solid var(--border-color);
+    color: var(--text-secondary);
 }
 
-#productos-table tbody tr {
+#productos-table tbody tr,
+#videojuegos-table tbody tr {
     transition: background-color 0.2s ease;
 }
 
-#productos-table tbody tr:hover {
+#productos-table tbody tr:hover,
+#videojuegos-table tbody tr:hover {
     background-color: var(--bg-color);
 }
 
-#productos-table td:last-child {
+#productos-table td:last-child,
+#videojuegos-table td:last-child {
     display: flex;
     gap: 0.5rem;
 }
@@ -888,16 +947,20 @@ header h1 {
         align-items: flex-start;
     }
 
-    #productos-table {
+    #productos-table,
+    #videojuegos-table {
         font-size: 0.9rem;
     }
 
     #productos-table th,
-    #productos-table td {
+    #productos-table td,
+    #videojuegos-table th,
+    #videojuegos-table td {
         padding: 0.75rem 0.5rem;
     }
 
-    #productos-table td:last-child {
+    #productos-table td:last-child,
+    #videojuegos-table td:last-child {
         flex-direction: column;
     }
 

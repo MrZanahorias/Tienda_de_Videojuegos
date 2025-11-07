@@ -9,7 +9,7 @@ try:
     conn = psycopg2.connect(
         dbname="videojuegos_db",
         user="videojuegos_user",
-        password="tu_password_seguro",
+        password="Inacap@2025",
         host="localhost",
         port="5432"
     )
