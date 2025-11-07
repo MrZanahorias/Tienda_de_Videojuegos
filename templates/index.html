@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD Videojuegos - Tienda Gaming</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎮 Tienda de Videojuegos</h1>
+            <p class="subtitle">Sistema de Gestión de Inventario Gaming</p>
+        </header>
+
+        <!-- Formulario para crear/editar producto -->
+        <section class="form-section">
+            <h2 id="form-title">Agregar Nuevo Videojuego</h2>
+            <form id="videojuego-form">
+                <input type="hidden" id="videojuego-id">
+                
+                <div class="form-group">
+                    <label for="titulo">Título del Videojuego</label>
+                    <input type="text" id="titulo" name="titulo" required placeholder="Ej: The Legend of Zelda">
+                </div>
+
+                <div class="form-group">
+                    <label for="descripcion">Descripción</label>
+                    <textarea id="descripcion" name="descripcion" rows="3" placeholder="Descripción del videojuego (opcional)"></textarea>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="plataforma">Plataforma</label>
+                        <select id="plataforma" name="plataforma" required>
+                            <option value="PC">PC</option>
+                            <option value="PS5">PlayStation 5</option>
+                            <option value="PS4">PlayStation 4</option>
+                            <option value="XBOX_SERIES">Xbox Series X/S</option>
+                            <option value="XBOX_ONE">Xbox One</option>
+                            <option value="SWITCH">Nintendo Switch</option>
+                            <option value="MULTI">Multiplataforma</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="genero">Género</label>
+                        <select id="genero" name="genero" required>
+                            <option value="ACCION">Acción</option>
+                            <option value="AVENTURA">Aventura</option>
+                            <option value="RPG">RPG</option>
+                            <option value="DEPORTES">Deportes</option>
+                            <option value="ESTRATEGIA">Estrategia</option>
+                            <option value="SIMULACION">Simulación</option>
+                            <option value="CARRERAS">Carreras</option>
+                            <option value="SHOOTER">Shooter</option>
+                            <option value="TERROR">Terror</option>
+                            <option value="PUZZLE">Puzzle</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="desarrollador">Desarrollador</label>
+                        <input type="text" id="desarrollador" name="desarrollador" placeholder="Ej: Nintendo">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="fecha_lanzamiento">Fecha de Lanzamiento</label>
+                        <input type="date" id="fecha_lanzamiento" name="fecha_lanzamiento">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="precio">Precio ($)</label>
+                        <input type="number" id="precio" name="precio" step="0.01" required placeholder="0.00">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="stock">Stock</label>
+                        <input type="number" id="stock" name="stock" required placeholder="0">
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary" id="submit-btn">
+                        <span id="btn-text">Agregar Videojuego</span>
+                    </button>
+                    <button type="button" class="btn btn-secondary" id="cancel-btn" style="display: none;">
+                        Cancelar
+                    </button>
+                </div>
+            </form>
+        </section>
+
+        <!-- Lista de productos -->
+        <section class="products-section">
+            <div class="section-header">
+                <h2>Lista de Videojuegos</h2>
+                <button class="btn btn-refresh" id="refresh-btn">🔄 Actualizar</button>
+            </div>
+
+            <div id="loading" class="loading" style="display: none;">
+                <div class="spinner"></div>
+                <p>Cargando videojuegos...</p>
+            </div>
+
+            <div id="error-message" class="error-message" style="display: none;"></div>
+
+            <div id="videojuegos-container">
+                <table id="videojuegos-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Título</th>
+                            <th>Plataforma</th>
+                            <th>Género</th>
+                            <th>Desarrollador</th>
+                            <th>Precio</th>
+                            <th>Stock</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="videojuegos-tbody">
+                        <!-- Los videojuegos se cargarán aquí dinámicamente -->
+                    </tbody>
+                </table>
+                <div id="empty-state" class="empty-state" style="display: none;">
+                    <p>🎮 No hay videojuegos registrados</p>
+                    <p class="empty-subtitle">Agrega tu primer videojuego usando el formulario</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Toast notification -->
+    <div id="toast" class="toast"></div>
+
+    <script src="/static/js/app.js"></script>
+</body>
+</html>
