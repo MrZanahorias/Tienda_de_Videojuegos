@@ -6,7 +6,7 @@ from .models import Videojuego
 import json
 from datetime import datetime
 
-# Create your views here.
+# Crea tus vistas aquí.
 
 def parse_fecha(fecha_str):
     """Convierte un string de fecha a objeto date"""
@@ -59,6 +59,13 @@ def validar_datos_videojuego(data, es_actualizacion=False):
         generos_validos = [choice[0] for choice in Videojuego.GENEROS]
         if data.get('genero') not in generos_validos:
             errores.append(f'Género inválido. Opciones válidas: {", ".join(generos_validos)}')
+    
+    # Validar fecha de lanzamiento
+    if 'fecha_lanzamiento' in data and data.get('fecha_lanzamiento'):
+        try:
+            parse_fecha(data.get('fecha_lanzamiento'))
+        except ValueError as e:
+            errores.append(str(e))
     
     return errores
 

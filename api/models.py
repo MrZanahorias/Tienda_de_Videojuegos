@@ -1,6 +1,6 @@
 from django.db import models
 
-# Create your models here.
+# Crea tus modelos aquí.
 
 class Videojuego(models.Model):
     PLATAFORMAS = [

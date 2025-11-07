@@ -1,7 +1,7 @@
 from django.contrib import admin
 from .models import Videojuego
 
-# Register your models here.
+# Registra tus modelos aquí.
 
 @admin.register(Videojuego)
 class VideojuegoAdmin(admin.ModelAdmin):

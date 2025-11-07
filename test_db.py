@@ -1,9 +1,9 @@
 import psycopg2
 import sys
 
-print(f"Python executable: {sys.executable}")
-print(f"Python version: {sys.version}")
-print(f"File system encoding: {sys.getfilesystemencoding()}")
+print(f"Ejecutable de Python: {sys.executable}")
+print(f"Versión de Python: {sys.version}")
+print(f"Codificación del sistema de archivos: {sys.getfilesystemencoding()}")
 
 try:
     conn = psycopg2.connect(
@@ -13,9 +13,9 @@ try:
         host="localhost",
         port="5432"
     )
-    print("✓ Connection successful!")
+    print("✓ ¡Conexión exitosa!")
     conn.close()
 except Exception as e:
-    print(f"✗ Connection failed: {e}")
+    print(f"✗ Error de conexión: {e}")
     import traceback
     traceback.print_exc()

@@ -2,13 +2,13 @@ import os
 import sys
 import subprocess
 
-# Get the short path version
+# Obtener la versión de ruta corta
 import ctypes
 from ctypes import wintypes
 
 def get_short_path_name(long_name):
     """
-    Gets the short path name of a given long path.
+    Obtiene el nombre de ruta corta de una ruta larga dada.
     """
     _GetShortPathNameW = ctypes.windll.kernel32.GetShortPathNameW
     _GetShortPathNameW.argtypes = [wintypes.LPCWSTR, wintypes.LPWSTR, wintypes.DWORD]
@@ -23,25 +23,25 @@ def get_short_path_name(long_name):
         else:
             output_buf_size = needed
 
-# Get current directory and convert to short path
+# Obtener el directorio actual y convertirlo a ruta corta
 current_dir = os.path.dirname(os.path.abspath(__file__))
 short_path = get_short_path_name(current_dir)
 
-print(f"Original path: {current_dir}")
-print(f"Short path: {short_path}")
+print(f"Ruta original: {current_dir}")
+print(f"Ruta corta: {short_path}")
 
-# Change to short path directory
+# Cambiar al directorio de ruta corta
 os.chdir(short_path)
 
-# Set environment variables
+# Establecer variables de entorno
 os.environ['PYTHONIOENCODING'] = 'utf-8'
 os.environ['PYTHONUTF8'] = '1'
 
-# Run Django migrate
+# Ejecutar el comando de migración de Django
 python_exe = os.path.join(short_path, '.venv', 'Scripts', 'python.exe')
 manage_py = os.path.join(short_path, 'manage.py')
 
-print(f"\nRunning: {python_exe} {manage_py} migrate\n")
+print(f"\nEjecutando: {python_exe} {manage_py} migrate\n")
 
 result = subprocess.run([python_exe, manage_py, 'migrate'], 
                        cwd=short_path,
