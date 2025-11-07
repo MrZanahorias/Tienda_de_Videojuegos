@@ -1,0 +1,69 @@
+.game-image-container {
+    position: relative;
+    background: linear-gradient(45deg, var(--card-bg), var(--secondary-color));
+    height: 400px;
+    overflow: hidden;
+    border-radius: 12px 12px 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.game-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.3s ease;
+    image-rendering: -webkit-optimize-contrast;
+    backface-visibility: hidden;
+}
+
+/* Mejora de la visualización de la imagen al hacer hover */
+.game-card:hover .game-image {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+}
+
+/* Asegura que las imágenes tengan un tamaño consistente en la cuadrícula */
+.games-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem 0;
+}
+
+/* Ajuste del tamaño de las tarjetas */
+.game-card {
+    max-width: 400px;
+    margin: 0 auto;
+    background: var(--card-bg);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow);
+}
+
+/* Mejora del contenedor de información */
+.game-info {
+    padding: 1.5rem;
+    background: linear-gradient(to top, var(--card-bg) 0%, rgba(43, 43, 43, 0.9) 100%);
+}
+
+/* Efecto de carga */
+.game-image.loading {
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 0.6; }
+    50% { opacity: 0.8; }
+    100% { opacity: 0.6; }
+}
+
+/* Hero banner con imagen */
+.hero-section {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('/static/images/hero/gaming-banner.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}

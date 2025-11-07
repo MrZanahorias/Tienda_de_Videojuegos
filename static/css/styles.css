@@ -1,31 +1,39 @@
 /* Reset y variables */
+:root {
+    --primary-color: #ff5c00;
+    --primary-hover: #ff7a33;
+    --secondary-color: #2b2b2b;
+    --accent-color: #00b67a;
+    --danger-color: #ff4444;
+    --warning-color: #ffbb33;
+    --bg-color: #0c0c0c;
+    --card-bg: #1a1a1a;
+    --nav-bg: rgba(0, 0, 0, 0.95);
+    --text-primary: #ffffff;
+    --text-secondary: #b3b3b3;
+    --border-color: #3d3d3d;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 10px 20px rgba(0, 0, 0, 0.5);
+    --glow: 0 0 20px rgba(255, 92, 0, 0.4);
+    --gradient: linear-gradient(135deg, #ff5c00, #ff8f00);
+    --glass: rgba(255, 255, 255, 0.1);
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-:root {
-    --primary-color: #4f46e5;
-    --primary-hover: #4338ca;
-    --secondary-color: #64748b;
-    --success-color: #10b981;
-    --danger-color: #ef4444;
-    --warning-color: #f59e0b;
-    --bg-color: #f8fafc;
-    --card-bg: #ffffff;
-    --text-primary: #1e293b;
-    --text-secondary: #64748b;
-    --border-color: #e2e8f0;
-    --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
-    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
-}
-
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     background-color: var(--bg-color);
     color: var(--text-primary);
     line-height: 1.6;
+    min-height: 100vh;
+    background-image: 
+        radial-gradient(circle at 20% 20%, rgba(255, 92, 0, 0.15) 0%, transparent 40%),
+        radial-gradient(circle at 80% 80%, rgba(255, 143, 0, 0.1) 0%, transparent 40%);
 }
 
 .container {

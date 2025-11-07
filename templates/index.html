@@ -3,20 +3,438 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CRUD Videojuegos - Tienda Gaming</title>
+    <title>GameStore - Tu Destino Gaming</title>
     <link rel="stylesheet" href="/static/css/styles.css">
+    <link rel="stylesheet" href="/static/css/cards.css">
+    <link rel="stylesheet" href="/static/css/images.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-left">
+                <a href="/" class="logo">
+                    <i class="fas fa-gamepad"></i>
+                    <span>GameStore</span>
+                </a>
+                <div class="search-bar">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" placeholder="Buscar juegos...">
+                    <button class="search-btn">Buscar</button>
+                </div>
+            </div>
+            <div class="nav-right">
+                <div class="nav-links">
+                    <a href="#" class="nav-link"><i class="fas fa-tags"></i> Ofertas</a>
+                    <a href="#" class="nav-link"><i class="fas fa-star"></i> Destacados</a>
+                </div>
+                <div class="nav-actions">
+                    <button class="nav-btn add-btn"><i class="fas fa-plus"></i> Agregar Juego</button>
+                    <button class="nav-btn refresh-btn"><i class="fas fa-sync-alt"></i></button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="hero-section">
+        <div class="hero-content">
+            <h1>Tu Destino Gaming Definitivo</h1>
+
+            <p>Gestiona tu catálogo de juegos con estilo</p>
+        </div>
+        <div class="hero-overlay"></div>
+    </div>
+    
+    <div class="hero-section">
+        <div class="hero-content">
+            <h1>Descubre Nuevos Mundos</h1>
+            <p>Tu destino gaming definitivo</p>
+        </div>
+        <div class="hero-overlay"></div>
+    </div>
+
     <div class="container">
-        <header>
-            <h1>🎮 Tienda de Videojuegos</h1>
-            <p class="subtitle">Sistema de Gestión de Inventario Gaming</p>
-        </header>
+        <section class="featured-section">
+            <h2 class="section-title">Catálogo de Juegos</h2>
+            <div class="games-grid" id="games-container">
+                <!-- Ejemplos de tarjetas de juegos -->
+                <div class="game-card">
+                    <div class="game-image-container">
+                        <img src="/static/images/games/gow_R.jpeg" alt="God of War Ragnarök" class="game-image">
+                        <div class="game-overlay">
+                            <button class="btn-edit"><i class="fas fa-edit"></i></button>
+                            <button class="btn-delete"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">God of War Ragnarök</h3>
+                        <p class="game-description">La épica continuación de la saga nórdica</p>
+                        <div class="game-meta">
+                            <div class="game-details">
+                                <span class="game-platform">PS5</span>
+                                <span class="game-genre">Acción/Aventura</span>
+                            </div>
+                            <div class="game-price-stock">
+                                <span class="game-price">$59.99</span>
+                                <span class="game-stock">Stock: 15</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-card">
+                    <div class="game-image-container">
+                        <img src="/static/images/games/cyberpunk.jpeg" alt="Cyberpunk 2077" class="game-image">
+                        <div class="game-overlay">
+                            <button class="btn-edit"><i class="fas fa-edit"></i></button>
+                            <button class="btn-delete"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Cyberpunk 2077</h3>
+                        <p class="game-description">Explora Night City en esta aventura futurista</p>
+                        <div class="game-meta">
+                            <div class="game-details">
+                                <span class="game-platform">PC</span>
+                                <span class="game-genre">RPG</span>
+                            </div>
+                            <div class="game-price-stock">
+                                <span class="game-price">$49.99</span>
+                                <span class="game-stock">Stock: 20</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-card">
+                    <div class="game-image-container">
+                        <img src="/static/images/games/eldenring.jpg" alt="Elden Ring" class="game-image">
+                        <div class="game-overlay">
+                            <button class="btn-edit"><i class="fas fa-edit"></i></button>
+                            <button class="btn-delete"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Elden Ring</h3>
+                        <p class="game-description">Una nueva fantasía oscura de FromSoftware</p>
+                        <div class="game-meta">
+                            <div class="game-details">
+                                <span class="game-platform">MULTI</span>
+                                <span class="game-genre">RPG</span>
+                            </div>
+                            <div class="game-price-stock">
+                                <span class="game-price">$59.99</span>
+                                <span class="game-stock">Stock: 8</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-card">
+                    <div class="game-image-container">
+                        <img src="/static/images/games/zelda_bw.jpeg" alt="The Legend of Zelda" class="game-image">
+                        <div class="game-overlay">
+                            <button class="btn-edit"><i class="fas fa-edit"></i></button>
+                            <button class="btn-delete"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">The Legend of Zelda: Breath of the Wild</h3>
+                        <p class="game-description">Explora un vasto reino en esta aventura épica</p>
+                        <div class="game-meta">
+                            <div class="game-details">
+                                <span class="game-platform">Switch</span>
+                                <span class="game-genre">Aventura</span>
+                            </div>
+                            <div class="game-price-stock">
+                                <span class="game-price">$54.99</span>
+                                <span class="game-stock">Stock: 12</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-card">
+                    <div class="game-image-container">
+                        <img src="/static/images/games/doom_eternal.jpg" alt="DOOM Eternal" class="game-image">
+                        <div class="game-overlay">
+                            <button class="btn-edit"><i class="fas fa-edit"></i></button>
+                            <button class="btn-delete"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">DOOM Eternal</h3>
+                        <p class="game-description">Rip and tear hasta que esté hecho</p>
+                        <div class="game-meta">
+                            <div class="game-details">
+                                <span class="game-platform">MULTI</span>
+                                <span class="game-genre">Shooter</span>
+                            </div>
+                            <div class="game-price-stock">
+                                <span class="game-price">$39.99</span>
+                                <span class="game-stock">Stock: 25</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-card">
+                    <div class="game-image-container">
+                        <img src="/static/images/games/re2.jpeg" alt="Resident Evil 2" class="game-image">
+                        <div class="game-overlay">
+                            <button class="btn-edit"><i class="fas fa-edit"></i></button>
+                            <button class="btn-delete"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Resident Evil 2 Remake</h3>
+                        <p class="game-description">Sobrevive al horror en Raccoon City</p>
+                        <div class="game-meta">
+                            <div class="game-details">
+                                <span class="game-platform">MULTI</span>
+                                <span class="game-genre">Terror</span>
+                            </div>
+                            <div class="game-price-stock">
+                                <span class="game-price">$29.99</span>
+                                <span class="game-stock">Stock: 18</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-card">
+                    <div class="game-image-container">
+                        <img src="/static/images/games/rdr2.jpeg" alt="Red Dead Redemption 2" class="game-image">
+                        <div class="game-overlay">
+                            <button class="btn-edit"><i class="fas fa-edit"></i></button>
+                            <button class="btn-delete"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Red Dead Redemption 2</h3>
+                        <p class="game-description">Una épica historia del Salvaje Oeste</p>
+                        <div class="game-meta">
+                            <div class="game-details">
+                                <span class="game-platform">MULTI</span>
+                                <span class="game-genre">Acción/Aventura</span>
+                            </div>
+                            <div class="game-price-stock">
+                                <span class="game-price">$44.99</span>
+                                <span class="game-stock">Stock: 10</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-card">
+                    <div class="game-image-container">
+                        <img src="/static/images/games/sifu.jpeg" alt="Sifu" class="game-image">
+                        <div class="game-overlay">
+                            <button class="btn-edit"><i class="fas fa-edit"></i></button>
+                            <button class="btn-delete"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Sifu</h3>
+                        <p class="game-description">Domina el arte del Kung Fu</p>
+                        <div class="game-meta">
+                            <div class="game-details">
+                                <span class="game-platform">PS5</span>
+                                <span class="game-genre">Acción</span>
+                            </div>
+                            <div class="game-price-stock">
+                                <span class="game-price">$39.99</span>
+                                <span class="game-stock">Stock: 15</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-card">
+                    <div class="game-image-container">
+                        <img src="/static/images/games/lords_fallen.jpeg" alt="Lords of the Fallen" class="game-image">
+                        <div class="game-overlay">
+                            <button class="btn-edit"><i class="fas fa-edit"></i></button>
+                            <button class="btn-delete"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Lords of the Fallen</h3>
+                        <p class="game-description">Enfréntate a desafíos épicos en un mundo oscuro</p>
+                        <div class="game-meta">
+                            <div class="game-details">
+                                <span class="game-platform">PS5</span>
+                                <span class="game-genre">RPG</span>
+                            </div>
+                            <div class="game-price-stock">
+                                <span class="game-price">$59.99</span>
+                                <span class="game-stock">Stock: 20</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-card">
+                    <div class="game-image-container">
+                        <img src="/static/images/games/baldurs_gate.jpg" alt="Baldur's Gate 3" class="game-image">
+                        <div class="game-overlay">
+                            <button class="btn-edit"><i class="fas fa-edit"></i></button>
+                            <button class="btn-delete"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Baldur's Gate 3</h3>
+                        <p class="game-description">Una aventura épica basada en D&D</p>
+                        <div class="game-meta">
+                            <div class="game-details">
+                                <span class="game-platform">PC</span>
+                                <span class="game-genre">RPG</span>
+                            </div>
+                            <div class="game-price-stock">
+                                <span class="game-price">$59.99</span>
+                                <span class="game-stock">Stock: 25</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-card">
+                    <div class="game-image-container">
+                        <img src="/static/images/games/ac_shadow.jpg" alt="Assassin's Creed Shadow" class="game-image">
+                        <div class="game-overlay">
+                            <button class="btn-edit"><i class="fas fa-edit"></i></button>
+                            <button class="btn-delete"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Assassin's Creed Shadow</h3>
+                        <p class="game-description">Una nueva aventura en el universo de Assassin's Creed</p>
+                        <div class="game-meta">
+                            <div class="game-details">
+                                <span class="game-platform">MULTI</span>
+                                <span class="game-genre">Acción/Aventura</span>
+                            </div>
+                            <div class="game-price-stock">
+                                <span class="game-price">$49.99</span>
+                                <span class="game-stock">Stock: 30</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-card">
+                    <div class="game-image-container">
+                        <img src="/static/images/games/mario+rabbitskindom_bt.jpg" alt="Mario + Rabbids Kingdom Battle" class="game-image">
+                        <div class="game-overlay">
+                            <button class="btn-edit"><i class="fas fa-edit"></i></button>
+                            <button class="btn-delete"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Mario + Rabbids Kingdom Battle</h3>
+                        <p class="game-description">Una divertida aventura táctica</p>
+                        <div class="game-meta">
+                            <div class="game-details">
+                                <span class="game-platform">Switch</span>
+                                <span class="game-genre">Estrategia</span>
+                            </div>
+                            <div class="game-price-stock">
+                                <span class="game-price">$39.99</span>
+                                <span class="game-stock">Stock: 15</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-card">
+                    <div class="game-image-container">
+                        <img src="/static/images/games/metro_redux.jpeg" alt="Metro Redux" class="game-image">
+                        <div class="game-overlay">
+                            <button class="btn-edit"><i class="fas fa-edit"></i></button>
+                            <button class="btn-delete"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Metro Redux</h3>
+                        <p class="game-description">Sobrevive en el metro post-apocalíptico de Moscú</p>
+                        <div class="game-meta">
+                            <div class="game-details">
+                                <span class="game-platform">MULTI</span>
+                                <span class="game-genre">FPS/Survival</span>
+                            </div>
+                            <div class="game-price-stock">
+                                <span class="game-price">$29.99</span>
+                                <span class="game-stock">Stock: 12</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-card">
+                    <div class="game-image-container">
+                        <img src="/static/images/games/crash_bandicoot_pack.jpg" alt="Crash Bandicoot N. Sane Trilogy" class="game-image">
+                        <div class="game-overlay">
+                            <button class="btn-edit"><i class="fas fa-edit"></i></button>
+                            <button class="btn-delete"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Crash Bandicoot N. Sane Trilogy</h3>
+                        <p class="game-description">Tres aventuras clásicas remasterizadas</p>
+                        <div class="game-meta">
+                            <div class="game-details">
+                                <span class="game-platform">MULTI</span>
+                                <span class="game-genre">Plataformas</span>
+                            </div>
+                            <div class="game-price-stock">
+                                <span class="game-price">$34.99</span>
+                                <span class="game-stock">Stock: 18</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Template para nuevas tarjetas -->
+                <template id="game-card-template">
+                    <div class="game-card">
+                        <div class="game-image-container">
+                            <img src="" alt="" class="game-image">
+                            <div class="game-overlay">
+                                <button class="btn-edit" data-id="${id}">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="btn-delete" data-id="${id}">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="game-info">
+                            <h3 class="game-title">${titulo}</h3>
+                            <p class="game-description">${descripcion}</p>
+                            <div class="game-meta">
+                                <div class="game-details">
+                                    <span class="game-platform">${plataforma}</span>
+                                    <span class="game-genre">${genero}</span>
+                                </div>
+                                <div class="game-price-stock">
+                                    <span class="game-price">$${precio}</span>
+                                    <span class="game-stock">Stock: ${stock}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </section>
 
         <!-- Formulario para crear/editar producto -->
         <section class="form-section">
             <h2 id="form-title">Agregar Nuevo Videojuego</h2>
             <form id="videojuego-form">
+
                 <input type="hidden" id="videojuego-id">
                 
                 <div class="form-group">
